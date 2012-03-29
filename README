@@ -1,0 +1,20 @@
+
+  Code for "Plotting the Differences Between Data and Expectation"
+  by Georgios Choudalakis and Diego Casadei
+  (http://arxiv.org/abs/1111.2062)
+
+  Quick start: call the example script from your command line:
+
+  [prompt]$ root -q -b plotSign.C+
+
+  This will produce the last figure in the paper, showing the
+  comparison between data and expectation with an inset plotting the
+  bin significance computed from the number of observed events and the
+  expected number of events, with and without uncertainty on the
+  expectation.
+
+  The math is implemented in pValuePoissonError.C while the ROOT
+  graphics is implemented in CompareHistograms.C (both included by
+  plotSign.C).  The script plotSign.C is just an example which shows
+  how to use these two macros.
+
