@@ -6,6 +6,7 @@
   -----------------------------------------------------------------
 
   Diego Casadei <casadei@cern.ch> 7 Dec 2011
+  (last update: 4 Apr 2012)
  */
 
 
@@ -15,7 +16,8 @@
 #include "pValuePoissonError.h"
 #include "CompareHistograms.h"
 
-
+#include<iostream>
+using namespace std;
 
 /*
   Given two ROOT histograms (with the same binning!) containing the
@@ -27,42 +29,34 @@
   standard deviations representing the full uncertainty and the
   significance is computed accordingly, unless this is disabled (third
   parameter).
-
-  -----------------------------------------------------------------
-
-  Diego Casadei <casadei@cern.ch> 7 Dec 2011
-  (last update: 24 Feb 2012)
 */
 TH1F* CompareHistograms(TH1* hObs, TH1* hExp,
-			bool neglectUncertainty)
+			bool neglectUncertainty,
+			bool variableBinning)
 {
-  if (hObs==0 || hExp==0) return 0;
-
+  if (hObs==0 || hExp==0) {
+    cerr << "ERROR in CompareHistograms(): invalid input" << endl;
+    return 0;
+  }
   TString name=hObs->GetName();
   name+="_cmp_";
   name+=hExp->GetName();
   int Nbins = hObs->GetNbinsX();
-  /*
-  // this assumes constant binning
-  TH1F* hOut = new TH1F(name, "",
-			Nbins,
-			hObs->GetXaxis()->GetXmin(),
-			hObs->GetXaxis()->GetXmax());
-  hOut->GetXaxis()->SetTitle( hObs->GetXaxis()->GetTitle() );
-  hOut->GetYaxis()->SetTitle("significance");
-  hOut->SetFillColor(2);
-  */
-  /*
-  // OK for variable binning but ALL properties are cloned...
-  TH1F* hOut = (TH1F*) hObs->Clone(name);
-  hOut->Clear();
-  hOut->GetYaxis()->SetTitle("significance");
-  hOut->SetFillColor(2);
-  */
-  // variable binning
-  TH1F* hOut = new TH1F(name, "",
-			hObs->GetXaxis()->GetNbins(),
-			hObs->GetXaxis()->GetXbins()->GetArray());
+  if (Nbins != hExp->GetNbinsX()) {
+    cerr << "ERROR in CompareHistograms(): different binning" << endl;
+    return 0;
+  }
+  TH1F* hOut = 0;
+  if (variableBinning) {
+    hOut = new TH1F(name, "",
+		    hObs->GetXaxis()->GetNbins(),
+		    hObs->GetXaxis()->GetXbins()->GetArray());
+  } else {
+    hOut = new TH1F(name, "",
+		    Nbins,
+		    hObs->GetXaxis()->GetXmin(),
+		    hObs->GetXaxis()->GetXmax());
+  }
   hOut->GetXaxis()->SetTitle( hObs->GetXaxis()->GetTitle() );
   hOut->GetYaxis()->SetTitle("significance");
   hOut->SetFillColor(2);

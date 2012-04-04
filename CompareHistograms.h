@@ -29,8 +29,10 @@
   significance is computed accordingly, unless this is disabled (third
   parameter).
 */
-TH1F* CompareHistograms(TH1* hObs=0, TH1* hExp=0,
-			bool neglectUncertainty=false);
+TH1F* CompareHistograms(TH1* hObs=0,  // observed counts
+			TH1* hExp=0,  // expectation
+			bool neglectUncertainty=false,
+			bool variableBinning=false);
 
 
 
