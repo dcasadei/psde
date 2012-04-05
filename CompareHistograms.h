@@ -1,10 +1,12 @@
-#ifndef _COMPAREHISTOGRAMS_
-#define _COMPAREHISTOGRAMS_
+#ifndef _PSDE_COMPAREHISTOGRAMS_
+#define _PSDE_COMPAREHISTOGRAMS_
 
 
 /*
   Code for "Plotting the Differences Between Data and Expectation"
   by Georgios Choudalakis and Diego Casadei
+  Eur. Phys. J. Plus 127 (2012) 25 
+  http://dx.doi.org/10.1140/epjp/i2012-12025-y
   (http://arxiv.org/abs/1111.2062)
 
   -----------------------------------------------------------------

@@ -10,6 +10,18 @@
  *   emphasize the significance of the observed deviations from the
  *   expectation.
  *
+ *   This code is just an example of the use of the functions which
+ *   compute the (dis-)agreement between two histograms in units of
+ *   significance (number of standard deviations away from the
+ *   Gaussian peak).  Look at the functions header files to learn
+ *   about their options.
+ *
+ *   See: "Plotting the Differences Between Data and Expectation"
+ *   by Georgios Choudalakis and Diego Casadei
+ *   Eur. Phys. J. Plus 127 (2012) 25 
+ *   http://dx.doi.org/10.1140/epjp/i2012-12025-y
+ *   (http://arxiv.org/abs/1111.2062)
+ *
  *   ---------------------------------------------------------------
  *
  *   [from the command line]$ root -q -b plotSign.C+

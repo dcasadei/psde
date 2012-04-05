@@ -18,7 +18,9 @@
   The math is implemented in pValuePoissonError.C while the ROOT
   graphics is implemented in CompareHistograms.C (both included by
   plotSign.C).  The script plotSign.C is just an example which shows
-  how to use these two macros.
+  how to use these two macros.  In CmpDataMC.C a more elaborate
+  example is provided, which also plots a stacked sum of histograms
+  representing all contributions to the total expectation.
 
   --------------------------------------------------
 

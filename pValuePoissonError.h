@@ -1,5 +1,5 @@
-#ifndef _PVALUEPOISSONERROR_
-#define _PVALUEPOISSONERROR_
+#ifndef _PSDE_PVALUEPOISSONERROR_
+#define _PSDE_PVALUEPOISSONERROR_
 
 /*
   Code for "Plotting the Differences Between Data and Expectation"
