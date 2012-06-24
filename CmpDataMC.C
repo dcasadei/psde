@@ -41,8 +41,8 @@
 
 int CmpDataMC(TH1* hObs, // observed counts
 	      TH1* hExp, // expectation
-	      THStack* stack, // (optional) contributions to expectation
-	      TLegend* lgstk, // (optional) stack legend
+	      THStack* stack,  // (optional) contributions to expectation
+	      TLegend* legend, // legend
 	      TString summary, // multi-page PDF
 	      TString eps,     // single page EPS
 	      TString pdf,     // single page PDF
@@ -120,7 +120,6 @@ int CmpDataMC(TH1* hObs, // observed counts
     // stack->SetMinimum(Min);
     stack->SetMaximum(2*Max);
     stack->Draw("HIST");
-    if (lgstk) lgstk->Draw();
   } else {
     // hExpClone->SetMinimum(Min);
     hExpClone->SetMaximum(2*Max);
@@ -129,6 +128,7 @@ int CmpDataMC(TH1* hObs, // observed counts
     hExpClone->Draw("HIST SAME");
   }
   hObs->Draw("E SAME");
+  if (legend) legend->Draw();
 
 
   cv_b->cd()->SetGridy();
