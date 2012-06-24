@@ -1,7 +1,7 @@
 /*
  *   Diego Casadei <diego.casadei@cern.ch>
  *   5 Nov 2011
- *   $Id$
+ *   $ Id: plotSign.C 9 2012-06-24 07:18:53Z casadei $
  *
  *   After the work by Georgios Choudalakis <georgios.choudalakis@cern.ch>
  *

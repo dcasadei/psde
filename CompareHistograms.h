@@ -13,7 +13,7 @@
   -----------------------------------------------------------------
 
   Diego Casadei <casadei@cern.ch> 7 Dec 2011
-  $Id$
+  $ Id: CompareHistograms.h 9 2012-06-24 07:18:53Z casadei $
  */
 
 
