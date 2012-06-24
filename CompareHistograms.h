@@ -32,11 +32,18 @@
   standard deviations representing the full uncertainty and the
   significance is computed accordingly, unless this is disabled (third
   parameter).
-*/
+
+  The last input pointer is the pull histogram, which is filled with
+  all z-values, without discarding the bins for which the p-value is
+  larger than 0.5: in case of ideal match, the pulls follow a standard
+  normal distribution.  A typical binnin for the pulls is from -5 to
+  +5 with 20 bins.
+ */
 TH1F* CompareHistograms(TH1* hObs=0,  // observed counts
 			TH1* hExp=0,  // expectation
 			bool neglectUncertainty=false,
-			bool variableBinning=false);
+			bool variableBinning=false,
+			TH1* hPull=0);
 
 
 

@@ -77,11 +77,13 @@ int plotSign(TString input="histograms.root") {
   hExp->SetMarkerSize(0);
 
   // significance without systematics: 3rd param is "ignore uncertainty"
-  TH1F* hSigNoErr = CompareHistograms(hObs, hExp, true);
+  TH1F* hPullNoErr = new TH1F("hPullNoErr","Pull distribution;significance",20,-5,5);
+  TH1F* hSigNoErr = CompareHistograms(hObs, hExp, true, false, hPullNoErr);
   hSigNoErr->SetName("hSigNoErr");
 
   // significance with systematics: 3rd param is false by default
-  TH1F* hSigSyst = CompareHistograms(hObs, hExp);
+  TH1F* hPull = new TH1F("hPull","Pull distribution;significance",20,-5,5);
+  TH1F* hSigSyst = CompareHistograms(hObs, hExp, false, false, hPull);
   hSigSyst->SetName("hSigSyst");
 
   TCanvas* cv = new TCanvas("cv","",600,600);
@@ -144,6 +146,31 @@ int plotSign(TString input="histograms.root") {
 
   cv->Print("dataVSexpectSyst.pdf", "pdf");
   cv->Print("dataVSexpectSyst.eps", "eps");
+
+
+  gStyle->SetOptTitle(1);
+
+  cv->Clear();
+  cv->SetLogy(1);
+
+  hPullNoErr->SetLineWidth(2);
+  hPull->SetLineWidth(2);
+  hPullNoErr->SetLineColor(kRed);
+  hPull->SetLineColor(kBlue);
+
+  hPullNoErr->Draw("HIST");
+  hPull->Draw("HIST,same");
+
+  TLegend* lg2 = new TLegend(0.12,0.78,0.65,0.9);
+  lg2->SetFillStyle(0);
+  lg2->SetBorderSize(0);
+  lg2->AddEntry(hPullNoErr, "Significance (no unc.)", "L");
+  lg2->AddEntry(hPull, "Significance with uncertainty", "L");
+  lg2->Draw();
+
+  cv->Print("pulls.pdf", "pdf");
+  cv->Print("pulls.eps", "eps");
+
 
   return 0;
 }

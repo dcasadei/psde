@@ -35,7 +35,8 @@ using namespace std;
 */
 TH1F* CompareHistograms(TH1* hObs, TH1* hExp,
 			bool neglectUncertainty,
-			bool variableBinning)
+			bool variableBinning,
+			TH1* hPull)
 {
   if (hObs==0 || hExp==0) {
     cerr << "ERROR in CompareHistograms(): invalid input" << endl;
@@ -71,17 +72,18 @@ TH1F* CompareHistograms(TH1* hObs, TH1* hExp,
     float nExp = hExp->GetBinContent(i);
     float vrnc = hExp->GetBinError(i);
     vrnc *= vrnc; // variance
-    float sig = 0;
+    float zValue = 0;
+    float pValue = 1;
     if (vrnc>0 && !neglectUncertainty) {
       // account for systematic uncertainty
-      float pValue = pValuePoissonError(nObs, nExp, vrnc);
-      if (pValue<0.5) sig = pValueToSignificance(pValue, (nObs>nExp));
+      pValue = pValuePoissonError(nObs, nExp, vrnc);
     } else {
       // assume perfect knowledge of Poisson parameter
-      float pValue = pValuePoisson(nObs,nExp);
-      if (pValue<0.5) sig = pValueToSignificance(pValue, (nObs>nExp));
+      pValue = pValuePoisson(nObs,nExp);
     }
-    hOut->SetBinContent(i, sig);
+    zValue = pValueToSignificance(pValue, (nObs>nExp));
+    if (pValue<0.5) hOut->SetBinContent(i, zValue);
+    if (hPull) hPull->Fill(zValue);
   }
 
   return hOut;
