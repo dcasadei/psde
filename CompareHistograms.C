@@ -66,7 +66,7 @@ TH1F* CompareHistograms(TH1* hObs, TH1* hExp,
   hOut->SetFillColor(2);
 
   for (int i=1; i<=Nbins; ++i) { // SKIP UNDER- AND OVER-FLOWS
-    if (hObs->GetBinContent(i)<=0) continue;
+    // if (hObs->GetBinContent(i)<=0) continue;
 
     unsigned nObs = (int) hObs->GetBinContent(i);
     float nExp = hExp->GetBinContent(i);
