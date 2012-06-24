@@ -28,8 +28,8 @@
 
 int CmpDataMC(TH1* hObs, // observed counts
 	      TH1* hExp, // expectation
-	      THStack* stack=0, // (optional) contributions to expectation
-	      TLegend* lgstk=0, // (optional) stack legend
+	      THStack* stack=0,   // (optional) contributions to expectation
+	      TLegend* legend=0,  // (optional) legend
 	      TString summary="", // multi-page PDF
 	      TString eps="",     // single page EPS
 	      TString pdf="",     // single page PDF
