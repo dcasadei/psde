@@ -1,6 +1,7 @@
 /*
  *   Diego Casadei <diego.casadei@cern.ch>
- *   5 Nov 2011 (last update: 24 Feb 2012)
+ *   5 Nov 2011
+ *   $Id$
  *
  *   After the work by Georgios Choudalakis <georgios.choudalakis@cern.ch>
  *
@@ -16,7 +17,8 @@
  *   Gaussian peak).  Look at the functions header files to learn
  *   about their options.
  *
- *   See: "Plotting the Differences Between Data and Expectation"
+ *   If you use this code, please cite in your bibliography 
+ *   "Plotting the Differences Between Data and Expectation"
  *   by Georgios Choudalakis and Diego Casadei
  *   Eur. Phys. J. Plus 127 (2012) 25 
  *   http://dx.doi.org/10.1140/epjp/i2012-12025-y

@@ -3,7 +3,8 @@
 
 
 /*
-  Code for "Plotting the Differences Between Data and Expectation"
+  Code from 
+  "Plotting the Differences Between Data and Expectation"
   by Georgios Choudalakis and Diego Casadei
   Eur. Phys. J. Plus 127 (2012) 25 
   http://dx.doi.org/10.1140/epjp/i2012-12025-y
@@ -12,6 +13,7 @@
   -----------------------------------------------------------------
 
   Diego Casadei <casadei@cern.ch> 7 Dec 2011
+  $Id$
  */
 
 

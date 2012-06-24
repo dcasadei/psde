@@ -2,7 +2,7 @@
 #define _PSDE_CMPDATAMC_
 
 /*
-  Code inspired by
+  Code from
   "Plotting the Differences Between Data and Expectation"
   by Georgios Choudalakis and Diego Casadei
   Eur. Phys. J. Plus 127 (2012) 25 
@@ -12,6 +12,7 @@
   -----------------------------------------------------------------
 
   Diego Casadei <casadei@cern.ch> 5 Apr 2012
+  $Id$
 
   -----------------------------------------------------------------
 
