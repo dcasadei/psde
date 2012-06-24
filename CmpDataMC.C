@@ -82,6 +82,7 @@ int CmpDataMC(TH1* hObs, // observed counts
 
   // significance with systematics: 3rd param is false by default
   TH1F* hSigSyst = CompareHistograms(hObs, hExp);
+  if (hSigSyst==0) return 2;
   hSigSyst->SetName("hSigSyst");
   hSigSyst->GetXaxis()->SetLabelSize(0.13);
   hSigSyst->GetYaxis()->SetLabelSize(0.13);
