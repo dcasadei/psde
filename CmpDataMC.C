@@ -107,10 +107,23 @@ int CmpDataMC(TH1* hObs, // observed counts
 
   cv_a->cd()->SetLogy();
 
+  double Max=0;
+  double Min=1e99;
+  if (hExp->GetMaximum()>Max) Max=hExp->GetMaximum();
+  if (hObs->GetMaximum()>Max) Max=hObs->GetMaximum();
+  if (hExp->GetMinimum()<Min) Min=hExp->GetMinimum();
+  if (hObs->GetMinimum()<Min) Min=hObs->GetMinimum();
+
+
+
   if (stack) {
+    // stack->SetMinimum(Min);
+    stack->SetMaximum(2*Max);
     stack->Draw("HIST");
     if (lgstk) lgstk->Draw();
   } else {
+    // hExpClone->SetMinimum(Min);
+    hExpClone->SetMaximum(2*Max);
     hExpClone->Draw("HIST");
     hExp->Draw("E2 SAME");
     hExpClone->Draw("HIST SAME");
