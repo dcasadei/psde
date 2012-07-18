@@ -26,8 +26,8 @@
 
   The repository can be accessed using (ssh is faster)
 
-     svn co svn+ssh://svn.cern.ch/guest/psde
-     svn co https://svn.cern.ch/guest/psde 
+     svn co https://svn.cern.ch/reps/psde 
+     svn co svn+ssh://svn.cern.ch/reps/psde
 
   (co makes a Check Out of the project and creates the psde local
   directory with the code).  Developers can access the repository with
