@@ -186,7 +186,7 @@ double pValuePoissonError(unsigned nObs, // observed counts
     /// NB: must work in log-scale otherwise troubles!
     double logProb = A*log(B/(1+B));
     double sum=exp(logProb); // P(n=0)
-    for (unsigned u=1; u<stop; ++u) {
+    for (unsigned u=1; u<=stop; ++u) {
       logProb += log((A+u-1)/(u*(1+B)));
       sum += exp(logProb);
     }
