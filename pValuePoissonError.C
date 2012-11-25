@@ -94,7 +94,7 @@ double pValuePoisson(unsigned nObs,    // observed counts
 
   // ROOT provides everything:
   if (nObs>nExp) // excess
-    return 1-ROOT::Math::inc_gamma_c(nObs,nExp);
+    return ROOT::Math::inc_gamma(nObs,nExp);
   else // deficit
     return ROOT::Math::inc_gamma_c(nObs+1,nExp);
 }
