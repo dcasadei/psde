@@ -5,7 +5,10 @@
  *
  *   After the work by Georgios Choudalakis <georgios.choudalakis@cern.ch>
  *
- *   ---------------------------------------------------------------
+ *   -----------------------------------------------------------------
+ *   This code is covered by the GNU General Public License:
+ *   http://www.gnu.org/licenses/gpl.html
+ *   -----------------------------------------------------------------
  *
  *   Given the "observed" and "expected" histograms, plot them and
  *   emphasize the significance of the observed deviations from the

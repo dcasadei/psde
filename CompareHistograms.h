@@ -11,6 +11,9 @@
   (http://arxiv.org/abs/1111.2062)
 
   -----------------------------------------------------------------
+  This code is covered by the GNU General Public License:
+  http://www.gnu.org/licenses/gpl.html
+  -----------------------------------------------------------------
 
   Diego Casadei <casadei@cern.ch> 7 Dec 2011
   $Id$

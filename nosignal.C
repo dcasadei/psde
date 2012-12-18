@@ -11,6 +11,10 @@
  *   distribution is the true underlying distribution.  The main
  *   purpose is to test the pull distribution.
  *
+ *   -----------------------------------------------------------------
+ *   This code is covered by the GNU General Public License:
+ *   http://www.gnu.org/licenses/gpl.html
+ *   -----------------------------------------------------------------
  *
  *   If you use this code, please cite in your bibliography 
  *   "Plotting the Differences Between Data and Expectation"

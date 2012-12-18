@@ -5,6 +5,11 @@
   http://dx.doi.org/10.1140/epjp/i2012-12025-y
   (http://arxiv.org/abs/1111.2062)
 
+  -----------------------------------------------------------------
+  This code is covered by the GNU General Public License:
+  http://www.gnu.org/licenses/gpl.html
+  -----------------------------------------------------------------
+
   Quick start: call the example script from your command line:
 
   [prompt]$ root -q -b plotSign.C+
