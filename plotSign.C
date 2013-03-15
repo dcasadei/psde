@@ -71,6 +71,7 @@ int plotSign(TString input="histograms.root") {
   }
 
   gStyle->SetOptStat(0);
+  gStyle->SetOptFit(111);
 
   // histogram containing the observed counts
   TH1F* hObs = (TH1F*) gDirectory->Get("data");
@@ -85,7 +86,7 @@ int plotSign(TString input="histograms.root") {
   hSigNoErr->SetName("hSigNoErr");
 
   // significance with systematics: 3rd param is false by default
-  TH1F* hPull = new TH1F("hPull","Pull distribution;significance",20,-5,5);
+  TH1F* hPull = new TH1F("hPull","Pull distribution (with unc.): Gaussian fit;significance",20,-5,5);
   TH1F* hSigSyst = CompareHistograms(hObs, hExp, false, false, hPull);
   hSigSyst->SetName("hSigSyst");
 
@@ -93,14 +94,20 @@ int plotSign(TString input="histograms.root") {
   gStyle->SetOptTitle(0);
 
   // prepare the canvas
-  TPad* cv_a = new TPad("cv_a", "",0.0,0.30,1.0,1.0);
+  TPad* cv_a = new TPad("cv_a", "Main plot",0.0,0.30,1.0,1.0);
   cv_a->SetTopMargin(0.05);
   cv_a->SetBottomMargin(0.001);
   cv_a->Draw();
-  TPad* cv_b = new TPad("cv_b", "",0.0,0.0,1.0,0.30);
+
+  TPad* cv_b = new TPad("cv_b", "Inset: significance",0.0,0.0,1.0,0.30);
   cv_b->SetTopMargin(0.0);
   cv_b->SetBottomMargin(0.35);
   cv_b->Draw();
+
+  TPad* cv_c = new TPad("cv_c", "Inset: pulls",0.55,0.66,0.88,0.95);
+  cv_c->SetTopMargin(0.1);
+  cv_c->SetBottomMargin(0.1);
+  cv_c->Draw();
 
   hExp->SetMarkerSize(0);
   hExp->SetMarkerStyle(0);
@@ -146,6 +153,12 @@ int plotSign(TString input="histograms.root") {
 
   hSigSyst->SetFillColor(kBlue);
   hSigSyst->Draw("HIST,SAME");
+
+  cv_c->cd()->SetLogy(0);
+  gStyle->SetOptFit(111);
+  gStyle->SetOptTitle(1);
+  hPull->Draw();
+  hPull->Fit("gaus");
 
   cv->Print("dataVSexpectSyst.pdf", "pdf");
   cv->Print("dataVSexpectSyst.eps", "eps");
