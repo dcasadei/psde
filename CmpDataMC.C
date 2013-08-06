@@ -38,6 +38,9 @@
 #include "TString.h"
 #include "TStyle.h"
 
+#include <iostream>
+using namespace std;
+
 #include "CompareHistograms.h"
 
 #include "CmpDataMC.h"
