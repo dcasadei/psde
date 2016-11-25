@@ -81,12 +81,12 @@ int plotSign(TString input="histograms.root") {
   hExp->SetMarkerSize(0);
 
   // significance without systematics: 3rd param is "ignore uncertainty"
-  TH1F* hPullNoErr = new TH1F("hPullNoErr","Pull distribution;significance",20,-5,5);
+  TH1F* hPullNoErr = new TH1F("hPullNoErr","Pull distribution;significance",21,-5,5);
   TH1F* hSigNoErr = CompareHistograms(hObs, hExp, true, false, hPullNoErr);
   hSigNoErr->SetName("hSigNoErr");
 
   // significance with systematics: 3rd param is false by default
-  TH1F* hPull = new TH1F("hPull","Pull distribution (with unc.): Gaussian fit;significance",20,-5,5);
+  TH1F* hPull = new TH1F("hPull","Pull distribution (with unc.): Gaussian fit;significance",21,-5,5);
   TH1F* hSigSyst = CompareHistograms(hObs, hExp, false, false, hPull);
   hSigSyst->SetName("hSigSyst");
 
