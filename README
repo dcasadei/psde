@@ -10,7 +10,8 @@
   http://www.gnu.org/licenses/gpl.html
   -----------------------------------------------------------------
 
-  Quick start: call the example script from your command line:
+  Quick start: install ROOT from http://root.cern.ch/ and call the
+  example script from your command line:
 
   [prompt]$ root -q -b plotSign.C+
 
