@@ -29,11 +29,12 @@
 
   --------------------------------------------------
 
-  The repository can be accessed using (ssh is faster)
+  The repository can be accessed as
 
+  Git: (recommended)
+     https://github.com/dcasadei/psde
+
+  SVN: (old)
      svn co https://svn.cern.ch/guest/psde 
      svn co svn+ssh://svn.cern.ch/guest/psde
 
-  (co makes a Check Out of the project and creates the psde local
-  directory with the code).  Developers can access the repository with
-  the substitution guest -> reps.
